@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - College of Applied Science</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        college: {
+                            navy: '#1a2238',   // Dark Navy
+                            dark: '#111827',   // Footer Dark
+                            gold: '#fbbf24',   // Gold Accent
+                            light: '#f3f4f6',  // Light Background
+                            blue: '#1e3a8a',   // Secondary Blue
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .course-card:hover .course-icon {
+            background-color: #fbbf24;
+            color: #1a2238;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+{% include "main/navbar.html" %}
+  
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-college-navy border-t border-white/10">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md uppercase">Home</a>
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md uppercase">About Us</a>
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-college-gold bg-white/10 rounded-md uppercase">Academics</a>
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md uppercase">Admissions</a>
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md uppercase">Departments</a>
+                <a href="#" class="block px-3 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md uppercase">Placement</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="dadad" alt="Library" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-college-navy/85"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4 tracking-wide">Academic Programs</h1>
+            <div class="w-24 h-1 bg-college-gold mx-auto mb-4"></div>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                Empowering Minds, Shaping Futures
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INTRODUCTION                                 -->
+    <!-- ============================================ -->
+    <section class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-college-navy uppercase tracking-wider mb-6 font-serif">Curriculum & Excellence</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                Our institution offers a wide range of undergraduate and postgraduate programs affiliated with Mahatma Gandhi University. The curriculum is designed to provide students with a strong theoretical foundation combined with practical skills to meet industry demands.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- UNDERGRADUATE PROGRAMS                       -->
+    <!-- ============================================ -->
+    <section class="py-16 bg-college-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center mb-10 border-b border-gray-300 pb-4">
+                <div class="bg-college-navy text-white px-4 py-2 rounded-t-md font-bold uppercase tracking-wider text-sm mr-4">
+                    Undergraduate
+                </div>
+                <h3 class="text-2xl font-bold text-college-navy font-serif">Bachelor's Degree Programs (3 Years)</h3>
+            </div>
+
+            <!-- Grid: Adjusted for 5 items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Course 1: B.Sc Computer Science -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-navy group-hover:bg-college-gold transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-navy/5 text-college-navy rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">B.Sc Computer Science</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Focuses on programming, algorithms, data structures, and system design. Prepares students for the IT industry.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 6 Semesters</span>
+                            <span>40 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2: B.Sc Electronics -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-navy group-hover:bg-college-gold transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-navy/5 text-college-navy rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">B.Sc Electronics</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Covers analog and digital circuits, embedded systems, VLSI, and modern communication technologies.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 6 Semesters</span>
+                            <span>40 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3: BCA -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-navy group-hover:bg-college-gold transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-navy/5 text-college-navy rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">BCA</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Bachelor of Computer Applications. Emphasizes software development, web engineering, and database management.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 6 Semesters</span>
+                            <span>40 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4: B.Com -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-navy group-hover:bg-college-gold transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-navy/5 text-college-navy rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">B.Com Computer App.</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Integrates commerce education with computer applications, accounting software, and business management.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 6 Semesters</span>
+                            <span>50 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5: BBA -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-navy group-hover:bg-college-gold transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-navy/5 text-college-navy rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">BBA</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Bachelor of Business Administration. Foundational course in management, marketing, HR, and entrepreneurship.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 6 Semesters</span>
+                            <span>40 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- POSTGRADUATE PROGRAMS                        -->
+    <!-- ============================================ -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center mb-10 border-b border-gray-300 pb-4">
+                <div class="bg-college-gold text-college-navy px-4 py-2 rounded-t-md font-bold uppercase tracking-wider text-sm mr-4">
+                    Postgraduate
+                </div>
+                <h3 class="text-2xl font-bold text-college-navy font-serif">Master's Degree Programs (2 Years)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- PG Card 1: MCA -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-gold group-hover:bg-college-navy transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-gold/10 text-college-gold rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">MCA</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Master of Computer Applications. Advanced program in software engineering, cloud computing, and application development.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 4 Semesters</span>
+                            <span>30 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PG Card 2: M.Sc CS -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-gold group-hover:bg-college-navy transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-gold/10 text-college-gold rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">M.Sc Computer Science</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Focuses on Advanced Algorithms, AI, Data Mining, and Machine Learning research methodologies.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 4 Semesters</span>
+                            <span>20 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PG Card 3: M.Sc Electronics -->
+                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                    <div class="h-2 bg-college-gold group-hover:bg-college-navy transition-colors"></div>
+                    <div class="p-8">
+                        <div class="course-icon w-14 h-14 bg-college-gold/10 text-college-gold rounded-lg flex items-center justify-center text-2xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-college-navy mb-2 font-serif">M.Sc Electronics</h4>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Specialized training in Signal Processing, Embedded Systems, and Control Systems. Includes project work.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider border-t border-gray-100 pt-4">
+                            <span><i class="fa-regular fa-clock mr-1"></i> 4 Semesters</span>
+                            <span>20 Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ACADEMIC RESOURCES & FACILITIES              -->
+    <!-- ============================================ -->
+    <section class="py-20 bg-college-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-serif mb-4">Academic Resources</h2>
+                <div class="w-16 h-1 bg-college-gold mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Providing a conducive environment for learning and research.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-college-gold rounded-full flex items-center justify-center text-college-navy text-xl shadow-lg">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold font-serif mb-2">Central Library</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            A vast collection of over 10,000 books, national and international journals, and digital resources. Open from 9 AM to 5 PM.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-college-gold rounded-full flex items-center justify-center text-college-navy text-xl shadow-lg">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold font-serif mb-2">Modern Labs</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            State-of-the-art Computer and Electronics laboratories equipped with high-performance systems and testing equipment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-college-gold rounded-full flex items-center justify-center text-college-navy text-xl shadow-lg">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold font-serif mb-2">Digital Campus</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            High-speed Wi-Fi connectivity across campus and access to e-learning platforms like INFLIBNET.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ADMISSION CTA                                -->
+    <!-- ============================================ -->
+    <section class="py-16 bg-college-light">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-200 flex flex-col md:flex-row items-center text-center md:text-left">
+                <div class="flex-1 mb-6 md:mb-0 md:pr-10">
+                    <h3 class="text-2xl font-bold text-college-navy font-serif mb-2">Interested in Joining Us?</h3>
+                    <p class="text-gray-600 mb-4">
+                        Admissions to merit seats are conducted through the Centralized Allotment Process (CAP) of Mahatma Gandhi University. Management seats are filled directly by the college.
+                    </p>
+                    <a href="#" class="text-college-blue font-medium hover:underline">View detailed admission guidelines <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="flex-shrink-0">
+                    <button class="bg-college-navy text-white px-8 py-3 rounded-full font-medium hover:bg-college-blue transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="bg-college-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-college-gold rounded-full flex items-center justify-center text-college-navy font-bold text-lg">C</div>
+                        <div>
+                            <h4 class="font-bold text-lg uppercase">College of Applied Science</h4>
+                            <p class="text-xs text-gray-400">Puthuppally, Kerala</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-6">
+                        Managed by Institute of Human Resources Development (IHRD), A Government of Kerala Undertaking. Committed to excellence in higher education and technical skills.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-college-gold hover:text-college-navy transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-college-gold hover:text-college-navy transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-college-gold hover:text-college-navy transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-college-gold hover:text-college-navy transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-6 text-sm border-b border-gray-700 pb-2 inline-block">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-college-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Academics</a></li>
+                        <li><a href="#" class="hover:text-college-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Departments</a></li>
+                        <li><a href="#" class="hover:text-college-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Admissions</a></li>
+                        <li><a href="#" class="hover:text-college-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Gallery</a></li>
+                        <li><a href="#" class="hover:text-college-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-6 text-sm border-b border-gray-700 pb-2 inline-block">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-college-gold"></i>
+                            <span>Payyappady P.O,<br>Puthuppally, Kottayam,<br>Kerala - 686011</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-college-gold"></i>
+                            <span>+91 481 2351631</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-college-gold"></i>
+                            <span>casputhuppally@ihrd.ac.in</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 College of Applied Science. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <span class="mx-2">Privacy Policy</span> | <span class="mx-2">Terms of Use</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
