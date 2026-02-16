@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Cell - College of Applied Science</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLES (MATCHING DEPARTMENTS THEME) --- */
+        
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #1a2b42; /* Deep Navy Blue */
+            --accent-gold: #cfaa56;   /* Muted Gold/Beige */
+            --light-bg: #f4f7f9;      /* Light Gray-Blue background */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 100%; 
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-limit {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- PAGE SPECIFIC STYLES --- */
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 43, 66, 0.9), rgba(26, 43, 66, 0.8)), url('fsf');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .page-banner h2 {
+            font-size: 3rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Layout Grid */
+        .page-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            padding-bottom: 80px;
+        }
+
+        /* Sidebar Navigation */
+        .dept-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 40px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .dept-sidebar h3 {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .sidebar-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            color: #555;
+            border-bottom: 1px solid #f5f5f5;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-links a i {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        .sidebar-links a:hover, .sidebar-links a.active {
+            background-color: #fcfcfc;
+            color: var(--primary-blue);
+            border-left-color: var(--accent-gold);
+            padding-left: 25px;
+            font-weight: 600;
+        }
+        
+        .sidebar-links a:last-child {
+            border-bottom: none;
+        }
+
+        /* Main Content Area */
+        .dept-main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Content Block (Using similar style to Department Block) */
+        .content-block {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 50px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 20px;
+        }
+
+        .block-header {
+            padding: 25px 35px;
+            border-bottom: 2px solid var(--accent-gold);
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .block-header i {
+            font-size: 24px;
+            color: var(--accent-gold);
+            background: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .block-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .block-content {
+            padding: 35px;
+        }
+
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Recruiter Logos Grid */
+        .recruiter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .recruiter-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            height: 140px;
+        }
+
+        .recruiter-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--accent-gold);
+        }
+
+        .recruiter-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .recruiter-name {
+            font-weight: 700;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* Contact Box */
+        .placement-contact {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .contact-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-blue);
+            color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #152233; 
+            color: #bbb;
+            padding: 60px 0 30px;
+            width: 100%;
+            margin-top: auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-info i {
+            color: var(--accent-gold);
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .container { padding: 0 20px; }
+            .search-box { display: none; }
+            .menu-toggle { display: block; }
+            
+            .page-layout { flex-direction: column; }
+            .dept-sidebar { width: 100%; position: static; margin-bottom: 30px; }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                padding: 20px 0;
+                align-items: flex-start;
+                border-top: 1px solid rgba(255,255,255,0.1);
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            
+            .main-nav.active { display: flex; }
+            
+            .main-nav a { 
+                margin: 0; 
+                padding: 15px 30px; 
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05); 
+            }
+            
+            .placement-contact { flex-direction: column; text-align: center; }
+        }
+        
+        @media (min-width: 900px) {
+            .main-nav { display: flex !important; }
+        }
+    </style>
+</head>
+<body>
+
+   {% include "main/navbar.html" %}
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <h2>Career Guidance & Placement</h2>
+        </div>
+    </div>
+
+    <!-- Content Layout -->
+    <div class="container page-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="dept-sidebar">
+            <h3>Quick Links</h3>
+            <div class="sidebar-links">
+                <a href="#overview" class="active">Overview <i class="fas fa-chevron-right"></i></a>
+                <a href="#statistics">Placement Statistics <i class="fas fa-chevron-right"></i></a>
+                <a href="#recruiters">Our Recruiters <i class="fas fa-chevron-right"></i></a>
+                <a href="#activities">Training Activities <i class="fas fa-chevron-right"></i></a>
+                <a href="#contact">Contact Officer <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="dept-main-content">
+            
+            <!-- OVERVIEW SECTION -->
+            <div class="content-block" id="overview">
+                <div class="block-header">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>Placement Overview</h2>
+                </div>
+                <div class="block-content">
+                    <p class="text-content">
+                        The Training and Placement Cell of CAS Puthuppally plays a vital role in locating job opportunities for Undergraduates and Postgraduates passing out from the college. The cell operates year-round to facilitate contacts between companies and graduates. We ensure that our students are industry-ready by providing them with necessary training in aptitude, soft skills, and technical knowledge.
+                    </p>
+                    <p class="text-content">
+                        Our rigorous placement process includes pre-placement talks, written tests, group discussions, and personal interviews. We have a consistent track record of placing our students in top-tier IT and Core companies.
+                    </p>
+                </div>
+            </div>
+
+            <!-- STATISTICS SECTION -->
+            <div class="content-block" id="statistics">
+                <div class="block-header">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Placement Statistics 2025</h2>
+                </div>
+                <div class="block-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Students Placed</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">45+</span>
+                            <span class="stat-label">Companies Visited</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">12 LPA</span>
+                            <span class="stat-label">Highest Package</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4.5 LPA</span>
+                            <span class="stat-label">Average Package</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECRUITERS SECTION -->
+            <div class="content-block" id="recruiters">
+                <div class="block-header">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Our Top Recruiters</h2>
+                </div>
+                <div class="block-content">
+                    <p class="text-content">We are proud to host some of the most prestigious names in the industry for our campus recruitment drives.</p>
+                    
+                    <div class="recruiter-grid">
+                        <div class="recruiter-card">
+                            <i class="fas fa-code recruiter-icon"></i>
+                            <span class="recruiter-name">TCS</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-laptop-code recruiter-icon"></i>
+                            <span class="recruiter-name">Wipro</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-building recruiter-icon"></i>
+                            <span class="recruiter-name">Infosys</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-brain recruiter-icon"></i>
+                            <span class="recruiter-name">Cognizant</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-server recruiter-icon"></i>
+                            <span class="recruiter-name">IBM</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-globe recruiter-icon"></i>
+                            <span class="recruiter-name">UST Global</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-mobile-alt recruiter-icon"></i>
+                            <span class="recruiter-name">Experion</span>
+                        </div>
+                        <div class="recruiter-card">
+                            <i class="fas fa-shopping-cart recruiter-icon"></i>
+                            <span class="recruiter-name">Amazon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITIES SECTION -->
+            <div class="content-block" id="activities">
+                <div class="block-header">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h2>Training Activities</h2>
+                </div>
+                <div class="block-content">
+                    <ul class="text-content" style="list-style-type: disc; padding-left: 20px;">
+                        <li><strong>Aptitude Training:</strong> Regular sessions to improve mathematical and logical reasoning skills.</li>
+                        <li><strong>Soft Skills Development:</strong> Workshops on communication, leadership, and team building.</li>
+                        <li><strong>Mock Interviews:</strong> Simulated interview sessions conducted by alumni and industry experts.</li>
+                        <li><strong>Resume Building:</strong> Guidance on creating professional resumes and cover letters.</li>
+                        <li><strong>Technical Workshops:</strong> Hands-on sessions on the latest technologies like Python, AI, and IoT.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="content-block" id="contact">
+                <div class="block-header">
+                    <i class="fas fa-id-card"></i>
+                    <h2>Placement Officer</h2>
+                </div>
+                <div class="block-content">
+                    <div class="placement-contact">
+                        <div class="contact-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Mr. Rajesh Kumar</h4>
+                            <p><strong>Placement Officer</strong></p>
+                            <p><i class="fas fa-envelope" style="width: 20px; color: var(--accent-gold);"></i> placement@casputhuppally.ac.in</p>
+                            <p><i class="fas fa-phone" style="width: 20px; color: var(--accent-gold);"></i> +91 98470 12345</p>
+                            <p style="margin-top: 10px; font-style: italic; font-size: 13px;">"We build the bridge between academic excellence and industry requirements."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About The College</h3>
+                    <p style="color: #888; font-size: 13px; line-height: 1.6;">
+                        Dedicated to excellence in teaching, learning, and research, and to developing leaders in many disciplines who make a difference globally.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Admission Procedures</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Student Council</a></li>
+                        <li><a href="#">Library Portal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>College of Applied Science Puthuppally, Payyappady P.O., Kottayam – 686 034</p>
+                        <p><i class="fas fa-phone"></i> +91 8547005040</p>
+                        <p><i class="fas fa-envelope"></i> caspayyappady@ihrd.ac.in</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 College of Applied Science. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
