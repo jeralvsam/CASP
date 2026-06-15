@@ -6,6 +6,8 @@
     <title>Placement Cell - College of Applied Science</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <style>
         /* --- CSS STYLES (MATCHING DEPARTMENTS THEME) --- */
@@ -385,10 +387,21 @@
         }
 
         /* Mobile Responsive */
+        /* Mobile Responsive */
         @media (max-width: 900px) {
             .container { padding: 0 20px; }
             
             .page-layout { flex-direction: column; gap: 20px; }
+            
+            .page-banner h2 {
+                font-family: 'Playfair Display', serif !important;
+                font-size: 1.8rem !important;
+            }
+            
+            .block-header h2 {
+                font-family: 'Playfair Display', serif !important;
+                font-size: 1.4rem !important;
+            }
             
             .dept-sidebar { 
                 width: 100%; 
@@ -437,7 +450,63 @@
                 padding-left: 16px;
             }
             
-            .placement-contact { flex-direction: column; text-align: center; }
+            /* Compact 2x2 grid for stats on mobile */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .stat-card {
+                padding: 20px 10px !important;
+                border-radius: 12px !important;
+            }
+            .stat-number {
+                font-size: 1.8rem !important;
+            }
+            .stat-label {
+                font-size: 10px !important;
+            }
+            
+            /* Compact 3-column logo grid for recruiters on mobile */
+            .recruiter-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+            }
+            .recruiter-card {
+                height: 100px !important;
+                padding: 15px 5px !important;
+                border-radius: 12px !important;
+            }
+            .recruiter-icon {
+                font-size: 24px !important;
+                margin-bottom: 8px !important;
+            }
+            .recruiter-name {
+                font-size: 11px !important;
+            }
+            
+            /* Placement Contact Card mobile styles */
+            .placement-contact {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 15px !important;
+                padding: 24px 20px !important;
+                border-radius: 16px !important;
+            }
+            .contact-avatar {
+                width: 70px !important;
+                height: 70px !important;
+                font-size: 28px !important;
+            }
+            .contact-details h4 {
+                font-size: 17px !important;
+            }
+            .contact-details p {
+                font-size: 13px !important;
+            }
+            
+            .block-content {
+                padding: 24px 20px !important;
+            }
         }
     </style>
 </head>

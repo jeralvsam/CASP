@@ -6,6 +6,8 @@
     <title>Admissions - College of Applied Science</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <style>
         /* --- CSS STYLES (MATCHING THEME) --- */
@@ -339,9 +341,53 @@
         /* Mobile Responsive */
         @media (max-width: 900px) {
             .container { padding: 0 20px; }
-            .process-grid { grid-template-columns: 1fr; gap: 40px; }
-            .page-banner h2 { font-size: 2.2rem; }
-            .cta-section { padding: 40px 20px; }
+            .process-grid { grid-template-columns: 1fr; gap: 35px; }
+            
+            .page-banner h2 { 
+                font-family: 'Playfair Display', serif !important;
+                font-size: 1.8rem !important; 
+            }
+            
+            .step-card {
+                background: white;
+                border-radius: 12px;
+                padding: 30px 20px;
+                border: 1px solid var(--border-color);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            }
+            .step-number {
+                background-color: var(--primary-blue);
+                color: var(--accent-gold);
+                border: 2px solid white;
+            }
+            .step-card h4 {
+                font-family: 'Playfair Display', serif;
+                font-weight: 700;
+                font-size: 1.1rem;
+            }
+
+            .table-header h3 {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+            
+            .cta-section { 
+                padding: 40px 20px; 
+                border-radius: 16px;
+            }
+            .cta-section h3 {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.5rem;
+            }
+            .cta-section p {
+                font-size: 0.9rem;
+            }
+            .btn-gold {
+                border-radius: 30px;
+                font-size: 12px;
+                padding: 10px 24px;
+            }
         }
     </style>
 </head>
