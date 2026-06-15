@@ -575,30 +575,7 @@
                 display: none; /* Hide search on mobile to save space */
             }
             
-            /* Hamburger Menu */
-            .menu-toggle {
-                display: block; /* Show hamburger */
-            }
-            .main-nav {
-                display: none; /* Hide default nav */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-blue);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-                border-top: 1px solid rgba(255,255,255,0.1);
-            }
-            .main-nav.active {
-                display: flex; /* Show when toggled */
-            }
-            .main-nav a {
-                margin: 10px 20px;
-                padding: 10px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
+
 
             /* No Gaps in Hero */
             .hero-wrapper {
@@ -658,11 +635,7 @@
             }
         }
 
-        @media (min-width: 900px) {
-            .main-nav {
-                display: flex !important; /* Force flex on desktop */
-            }
-        }
+
     </style>
 </head>
 <body>
@@ -673,10 +646,10 @@
     <div class="hero-wrapper">
         <section class="hero">
             <!-- Slideshow Images -->
-            <img src="{% static 'main/images/college.png' %}"class="hero-slide active" alt="College">
-            <img src="{% static 'main/images/collegebetter.png' %}"class="hero-slide active" alt="College">
-            <img src="{% static 'main/images/entrr.png' %}"class="hero-slide active" alt="College">
-            <img src="{% static 'main/images/college stu.webp' %}"class="hero-slide active" alt="College">
+            <img src="{% static 'main/images/college.png' %}" class="hero-slide active" alt="College">
+            <img src="{% static 'main/images/collegebetter.png' %}" class="hero-slide" alt="College">
+            <img src="{% static 'main/images/entrr.png' %}" class="hero-slide" alt="College">
+            <img src="{% static 'main/images/college stu.webp' %}" class="hero-slide" alt="College">
             
             <div class="hero-overlay">
                 <h2>Knowledge is Power</h2>
@@ -857,11 +830,7 @@ Pin- 686 011</p>
 
     <!-- Scripts for Slideshows -->
     <script>
-        // --- MOBILE MENU TOGGLE ---
-        function toggleMenu() {
-            var nav = document.getElementById("mainNav");
-            nav.classList.toggle("active");
-        }
+
 
         // --- HERO SLIDESHOW ---
         let slideIndex = 0;

@@ -66,7 +66,7 @@
 
         /* Page Banner */
         .page-banner {
-            background: linear-gradient(rgba(26, 43, 66, 0.9), rgba(26, 43, 66, 0.8)), url('https://unsplash.com/photos/a-bunch-of-graduation-caps-flying-in-the-air-trJyPNImZJg');
+            background: linear-gradient(rgba(26, 43, 66, 0.9), rgba(26, 43, 66, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             height: 250px;
@@ -340,54 +340,8 @@
         @media (max-width: 900px) {
             .container { padding: 0 20px; }
             .process-grid { grid-template-columns: 1fr; gap: 40px; }
-            .eligibility-table { display: block; overflow-x: auto; white-space: nowrap; }
-            
-            .search-box {
-                display: none; /* Hide search on mobile */
-            }
-
-            .menu-toggle { display: block; }
-            
-            .main-nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-blue);
-                flex-direction: column;
-                padding: 20px 0;
-                align-items: flex-start;
-                border-top: 1px solid rgba(255,255,255,0.1);
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-            }
-            
-            .main-nav.active { display: flex; }
-            
-            .main-nav a { 
-                margin: 0; 
-                padding: 15px 30px; 
-                width: 100%;
-                border-bottom: 1px solid rgba(255,255,255,0.05); 
-            }
-            
-            .main-nav a:last-child {
-                border-bottom: none;
-            }
-
-            .main-nav a::after { display: none; } /* Remove hover underline on mobile */
-            
-            .main-nav a:hover {
-                background-color: rgba(255,255,255,0.05);
-                color: var(--accent-gold);
-            }
-
             .page-banner h2 { font-size: 2.2rem; }
             .cta-section { padding: 40px 20px; }
-        }
-        
-        @media (min-width: 900px) {
-            .main-nav { display: flex !important; }
         }
     </style>
 </head>
@@ -447,42 +401,44 @@
                 <div class="table-header">
                     <h3>Eligibility Criteria</h3>
                 </div>
-                <table class="eligibility-table">
-                    <thead>
-                        <tr>
-                            <th>Program</th>
-                            <th>Stream</th>
-                            <th>Minimum Qualification</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Undergraduate</td>
-                            <td>B.Sc Computer Science</td>
-                            <td>Pass in Plus Two with Mathematics as a subject.</td>
-                        </tr>
-                        <tr>
-                            <td>Undergraduate</td>
-                            <td>B.Sc Electronics</td>
-                            <td>Pass in Plus Two with Physics/Maths/Chemistry.</td>
-                        </tr>
-                        <tr>
-                            <td>Undergraduate</td>
-                            <td>B.Com / BBA</td>
-                            <td>Pass in Plus Two (Any stream) with minimum 45% marks.</td>
-                        </tr>
-                        <tr>
-                            <td>Postgraduate</td>
-                            <td>M.Sc Computer Science</td>
-                            <td>B.Sc CS / BCA with minimum 50% aggregate.</td>
-                        </tr>
-                        <tr>
-                            <td>Postgraduate</td>
-                            <td>MCA</td>
-                            <td>Any Degree with Maths at +2 or Degree level.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px;">
+                    <table class="eligibility-table" style="width: 100%; min-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>Program</th>
+                                <th>Stream</th>
+                                <th>Minimum Qualification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Undergraduate</td>
+                                <td>B.Sc Computer Science</td>
+                                <td>Pass in Plus Two with Mathematics as a subject.</td>
+                            </tr>
+                            <tr>
+                                <td>Undergraduate</td>
+                                <td>B.Sc Electronics</td>
+                                <td>Pass in Plus Two with Physics/Maths/Chemistry.</td>
+                            </tr>
+                            <tr>
+                                <td>Undergraduate</td>
+                                <td>B.Com / BBA</td>
+                                <td>Pass in Plus Two (Any stream) with minimum 45% marks.</td>
+                            </tr>
+                            <tr>
+                                <td>Postgraduate</td>
+                                <td>M.Sc Computer Science</td>
+                                <td>B.Sc CS / BCA with minimum 50% aggregate.</td>
+                            </tr>
+                            <tr>
+                                <td>Postgraduate</td>
+                                <td>MCA</td>
+                                <td>Any Degree with Maths at +2 or Degree level.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- CTA -->
