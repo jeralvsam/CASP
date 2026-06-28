@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Applied Science Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .nav-font {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- navbar.html -->
+    <nav class="bg-[#1a2b42] text-white px-4 md:px-6 py-3 md:py-6 shadow-md border-b-2 border-[#eab308] relative z-50 nav-font">
+        <div class="flex items-center justify-between w-full">
+
+            <!-- Logo Section: Leftmost -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-9 h-9 md:w-12 md:h-12 bg-[#eab308] rounded-full flex items-center justify-center text-[#1a2b42] font-bold text-lg md:text-2xl flex-shrink-0">
+                    C
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-bold leading-tight tracking-wide">
+                        <span class="block md:hidden text-[11px] sm:text-xs font-extrabold tracking-normal leading-snug">College of Applied Science</span>
+                        <span class="hidden md:block text-lg">COLLEGE OF APPLIED SCIENCE</span>
+                    </h1>
+                    <span class="text-[7px] sm:text-[8px] md:text-[10px] text-gray-400 tracking-widest uppercase">Excellence in Education</span>
+                </div>
+            </div>
+
+            <!-- Hamburger Button (Mobile only) -->
+            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none p-2 hover:text-[#eab308] transition-colors" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Navigation Links: Desktop -->
+            <div class="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-semibold tracking-wide">
+                <a href="{% url 'home' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'home' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   HOME
+                </a>
+
+                <a href="{% url 'about' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'about' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   ABOUT
+                </a>
+
+                <a href="{% url 'academics' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'academics' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   ACADEMICS
+                </a>
+
+                <a href="{% url 'admissions' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'admissions' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   ADMISSIONS
+                </a>
+
+                <a href="{% url 'departments' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'departments' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   DEPARTMENTS
+                </a>
+
+                <a href="{% url 'placement' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'placement' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   PLACEMENTS
+                </a>
+
+                <a href="{% url 'gallery' %}"
+                   class="relative px-3 py-2 text-white hover:text-[#eab308] transition-colors
+                   {% if request.resolver_match.url_name == 'gallery' %}
+                     after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-[#eab308]
+                   {% endif %}">
+                   GALLERY
+                </a>
+
+                <a href="{% url 'contact' %}"
+                   class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-full transition duration-300 transform hover:scale-105 shadow-md">
+                   Contact Us
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown (Hidden by default, slides down) -->
+        <div id="mobile-menu-dropdown" class="hidden md:hidden absolute left-0 right-0 top-full bg-[#1a2236]/98 backdrop-blur-md border-t border-gray-700 shadow-xl z-50 transition-all duration-300">
+            <div class="px-6 py-4 flex flex-col space-y-4 text-base font-semibold tracking-wide">
+                <a href="{% url 'home' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'home' %} text-[#eab308] {% endif %}">HOME</a>
+                <a href="{% url 'about' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'about' %} text-[#eab308] {% endif %}">ABOUT</a>
+                <a href="{% url 'academics' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'academics' %} text-[#eab308] {% endif %}">ACADEMICS</a>
+                <a href="{% url 'admissions' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'admissions' %} text-[#eab308] {% endif %}">ADMISSIONS</a>
+                <a href="{% url 'departments' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'departments' %} text-[#eab308] {% endif %}">DEPARTMENTS</a>
+                <a href="{% url 'placement' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'placement' %} text-[#eab308] {% endif %}">PLACEMENTS</a>
+                <a href="{% url 'gallery' %}" class="py-2 border-b border-gray-800 hover:text-[#eab308] transition-colors {% if request.resolver_match.url_name == 'gallery' %} text-[#eab308] {% endif %}">GALLERY</a>
+                <a href="{% url 'contact' %}" class="bg-yellow-400 hover:bg-yellow-500 text-black text-center font-semibold py-3 rounded-full transition duration-300 shadow-md">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu-dropdown');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                // Open Menu
+                menu.classList.remove('hidden');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                // Close Menu
+                menu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

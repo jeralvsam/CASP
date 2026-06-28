@@ -1,0 +1,1088 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Applied Science</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #1a2b42; /* Deep Navy Blue */
+            --accent-gold: #cfaa56;   /* Muted Gold/Beige */
+            --light-bg: #eef2f5;      /* Light Gray-Blue background */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Container extends to full width with padding */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 40px; /* Consistent padding */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Active Link Style */
+        .main-nav a.active {
+            color: var(--accent-gold);
+        }
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+
+        .hero-wrapper {
+            background: white;
+            padding: 4px 0; /* Vertical padding for white gaps */
+            max-width: 100%; 
+            margin: 0;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px; 
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Blue Tint Overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 43, 66, 0.4); 
+            z-index: 1; 
+            pointer-events: none; 
+        }
+
+        /* Slideshow images */
+        .hero img {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0; 
+            transition: opacity 1s ease-in-out, transform 5s ease;
+            z-index: 0;
+        }
+
+        .hero img.active {
+            opacity: 0.9; 
+        }
+
+        .hero:hover img.active {
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            z-index: 2; 
+        }
+
+        .hero-overlay h2 {
+            color: white;
+            font-size: 3.5rem; 
+            font-family: 'Times New Roman', Times, serif; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+            font-style: italic;
+            letter-spacing: 0;
+        }
+        
+        .hero-overlay p {
+            color: #eee;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            z-index: 2; 
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .dot.active {
+            background-color: var(--accent-gold);
+            transform: scale(1.2);
+            box-shadow: none;
+        }
+        
+        .dot:hover {
+            border: none;
+        }
+
+        /* --- WELCOME BANNER --- */
+        
+        .welcome-section {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 100%; 
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .welcome-section h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700; 
+            letter-spacing: 1px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .welcome-section p {
+            max-width: 900px; 
+            margin: 0 auto 30px auto;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #dbe4ef;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 35px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: #fff;
+            color: var(--primary-blue);
+            box-shadow: none;
+        }
+
+        /* --- INFO GRID --- */
+        
+        .info-section {
+            background: var(--light-bg);
+            padding: 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            background: white;
+            padding: 50px 40px; 
+            width: 100%; 
+        }
+
+        .card h4 {
+            font-size: 18px;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: none;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-left: 0;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Principal Card */
+        .principal-content {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .principal-content img {
+            width: 140px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .principal-text h5 {
+            font-size: 18px;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .principal-text span {
+            font-size: 12px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .principal-text p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Events & Faculty */
+        .split-right {
+            display: flex;
+            height: 100%; 
+        }
+
+        .events-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .events-box {
+            flex: 1;
+            width: 100%; 
+        }
+        
+        .events-box ul {
+            border-left: 2px solid #eee;
+        }
+
+        .events-box li {
+            padding: 15px 0 15px 20px; 
+            font-size: 14px;
+            color: #444;
+            border-bottom: 1px solid #f9f9f9;
+            position: relative;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        
+        .events-box li:hover {
+            color: var(--primary-blue);
+            background: #fafafa;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 20px; 
+        }
+        
+        .events-box li span.date {
+            display: block;
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- DEPARTMENTS SECTION --- */
+        .departments-section {
+            padding: 60px 40px;
+            background-color: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h3 {
+            font-size: 24px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .section-header .divider {
+            height: 3px;
+            width: 60px;
+            background-color: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .dept-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .dept-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(207, 170, 86, 0.1);
+            color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 20px;
+            transition: 0.3s;
+        }
+
+        .dept-card:hover .dept-icon {
+            background-color: var(--primary-blue);
+            color: var(--accent-gold);
+        }
+
+        .dept-card h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+        }
+
+        .dept-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* --- CLUB ACTIVITIES SECTION --- */
+        .club-section {
+            padding: 80px 40px;
+            background-color: white; 
+            position: relative;
+            overflow: hidden; 
+        }
+        
+        .club-section::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(207, 170, 86, 0.1); 
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .club-wrapper-outer {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        /* The frame itself */
+        .club-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border: 15px solid #fff; 
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            background-color: #000;
+            transform: rotate(-2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .club-slider-wrapper:hover {
+            transform: rotate(0deg) scale(1.01);
+        }
+
+        .club-bg-decor {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-blue);
+            border-radius: 20px;
+            transform: rotate(2deg);
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .club-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 6s ease;
+        }
+
+        .club-slide.active {
+            opacity: 1;
+            transform: scale(1.05); 
+        }
+
+        /* Footer */
+        footer {
+            background-color: #152233; 
+            color: #bbb;
+            padding: 60px 0 30px;
+            border-top: none;
+            width: 100%;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: none;
+            padding-bottom: 0;
+            display: block;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            font-size: inherit;
+            color: inherit;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: inherit;
+        }
+
+        .contact-info i {
+            color: inherit;
+            width: auto;
+            text-align: left;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: inherit;
+        }
+
+        /* ═══════════════════════════════════════════
+           MOBILE REDESIGN — max-width: 900px
+           Desktop styles above are untouched.
+        ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+
+            /* ── Base ── */
+            body { font-family: 'Roboto', sans-serif; }
+            .container { padding: 0 18px; }
+
+            /* ── Hero ── */
+            .hero-wrapper { padding: 0; background: #000; }
+            .hero {
+                height: 58vw;
+                min-height: 210px;
+                max-height: 320px;
+            }
+            /* Stronger gradient so text is always legible */
+            .hero::after {
+                background: linear-gradient(
+                    to top,
+                    rgba(10, 18, 30, 0.85) 0%,
+                    rgba(26, 43, 66, 0.35) 60%,
+                    transparent 100%
+                ) !important;
+            }
+            .hero:hover img.active { transform: none; }
+
+            /* Text sits at BOTTOM of hero, not centre */
+            .hero-overlay {
+                top: auto !important;
+                bottom: 36px !important;
+                left: 0 !important;
+                transform: none !important;
+                width: 100% !important;
+                text-align: left !important;
+                padding: 0 18px !important;
+                background: none !important;
+                backdrop-filter: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .hero-overlay h2 {
+                font-size: 1.45rem !important;
+                font-family: 'Playfair Display', serif !important;
+                font-weight: 700;
+                line-height: 1.25;
+                margin-bottom: 4px;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+                color: #fff;
+            }
+            .hero-overlay p {
+                font-size: 0.78rem !important;
+                color: rgba(255,255,255,0.82) !important;
+                line-height: 1.4;
+                text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+            }
+
+            /* Carousel dots — smaller, closer to edge */
+            .carousel-dots { bottom: 12px; }
+            .dot { width: 7px; height: 7px; margin: 0 3px; }
+
+            /* ── Welcome Banner ── */
+            .welcome-section {
+                padding: 36px 20px 32px !important;
+            }
+            .welcome-section h3 {
+                font-family: 'Playfair Display', serif !important;
+                font-size: 1.25rem !important;
+                font-weight: 700;
+                line-height: 1.35;
+                margin-bottom: 12px;
+                letter-spacing: 0.3px;
+                text-transform: none !important;
+            }
+            .welcome-section p {
+                font-size: 0.84rem !important;
+                line-height: 1.7;
+                color: rgba(255,255,255,0.75) !important;
+                margin-bottom: 22px !important;
+            }
+            .btn-gold {
+                display: inline-block;
+                border-radius: 50px !important;
+                padding: 11px 32px !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 1.2px;
+                font-weight: 700;
+            }
+
+            /* ── Info Grid (Principal + Notice) ── */
+            .info-grid {
+                grid-template-columns: 1fr !important;
+                padding: 24px 16px !important;
+                gap: 20px !important;
+                background: #f3f6fa !important;
+            }
+
+            /* Principal card */
+            .principal-card {
+                background: #fff !important;
+                border-radius: 16px !important;
+                padding: 20px !important;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+                border: 1px solid #e8edf3 !important;
+            }
+            .card h4 {
+                text-align: left !important;
+                display: block !important;
+                font-size: 0.72rem !important;
+                letter-spacing: 1.4px !important;
+                color: var(--accent-gold) !important;
+                border-bottom: none !important;
+                margin-bottom: 14px !important;
+            }
+            .principal-content {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 14px !important;
+                text-align: center !important;
+                background: none !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            /* Fix: wrapper div must not shrink the image */
+            .principal-img-wrapper {
+                flex-shrink: 0 !important;
+                width: 100px !important;
+                height: 100px !important;
+            }
+            .principal-content img {
+                width: 100px !important;
+                height: 100px !important;
+                min-width: 100px !important;
+                border-radius: 50% !important;
+                border: 3px solid var(--accent-gold) !important;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.15) !important;
+                object-fit: cover !important;
+                display: block !important;
+            }
+            .principal-text {
+                text-align: center;
+            }
+            .principal-text h5 {
+                font-size: 1rem !important;
+                font-family: 'Roboto', sans-serif !important;
+                font-weight: 700;
+                color: var(--primary-blue);
+                margin-bottom: 2px;
+            }
+            .principal-text span {
+                font-size: 0.68rem !important;
+                margin-bottom: 10px !important;
+            }
+            .principal-text p {
+                font-size: 0.8rem !important;
+                line-height: 1.6;
+                color: #5a6473 !important;
+            }
+
+            /* Notice board card */
+            .events-card {
+                background: #fff !important;
+                border-radius: 16px !important;
+                padding: 20px 18px !important;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+                border: 1px solid #e8edf3 !important;
+            }
+            .events-box ul { border-left: none !important; padding: 0 !important; }
+            .events-box li {
+                display: block !important;
+                background: transparent !important;
+                border: none !important;
+                border-bottom: 1px solid #f0f3f8 !important;
+                border-left: 3px solid var(--accent-gold) !important;
+                border-radius: 0 !important;
+                margin-bottom: 0 !important;
+                padding: 12px 14px !important;
+                font-size: 0.82rem !important;
+                color: #1e293b !important;
+                line-height: 1.45 !important;
+                transition: background 0.15s;
+            }
+            .events-box li:last-child {
+                border-bottom: none !important;
+            }
+            .events-box li:hover {
+                background: #fafbff !important;
+                box-shadow: none !important;
+                border-left-color: var(--primary-blue) !important;
+            }
+            .events-box li span.date {
+                display: inline-block !important;
+                background: none !important;
+                color: var(--accent-gold) !important;
+                font-size: 0.65rem !important;
+                font-weight: 800 !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 3px !important;
+                width: auto !important;
+                height: auto !important;
+                border-radius: 0 !important;
+                padding: 0 !important;
+                line-height: 1 !important;
+            }
+
+            /* ── Departments Section ── */
+            .departments-section {
+                padding: 28px 16px !important;
+            }
+            .section-header { margin-bottom: 20px !important; }
+            .section-header h3 {
+                font-family: 'Playfair Display', serif !important;
+                font-size: 1.2rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .dept-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .dept-card {
+                padding: 18px 12px !important;
+                border-radius: 12px !important;
+                border: 1px solid #e8edf3 !important;
+                border-bottom: 3px solid transparent !important;
+            }
+            .dept-card:hover {
+                border-bottom-color: var(--accent-gold) !important;
+            }
+            .dept-icon {
+                width: 44px !important;
+                height: 44px !important;
+                font-size: 18px !important;
+                margin-bottom: 10px !important;
+            }
+            .dept-card h4 {
+                font-size: 0.75rem !important;
+                margin-bottom: 6px !important;
+                border-bottom: none !important;
+                display: block !important;
+            }
+            .dept-card p {
+                font-size: 0.72rem !important;
+                line-height: 1.45 !important;
+            }
+
+            /* ── Club / Gallery Slider ── */
+            .club-section { padding: 28px 16px !important; }
+            .club-wrapper-outer { padding: 0 !important; }
+            .club-slider-wrapper {
+                height: 200px !important;
+                border: 6px solid #fff !important;
+                border-radius: 14px !important;
+                transform: none !important;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+            }
+            .club-slider-wrapper:hover { transform: none !important; }
+            .club-bg-decor { display: none !important; }
+            .club-slide.active { transform: none !important; }
+
+            /* ── Footer ── */
+            footer {
+                padding: 36px 0 20px !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+                padding: 0 18px;
+                margin-bottom: 24px !important;
+            }
+            .footer-col h3 {
+                font-size: 0.72rem !important;
+                letter-spacing: 1.5px !important;
+                margin-bottom: 12px !important;
+                border-left: 3px solid var(--accent-gold);
+                padding-left: 8px;
+            }
+            .footer-links li { margin-bottom: 7px !important; }
+            .footer-links a { font-size: 0.82rem !important; }
+            .contact-info p { font-size: 0.82rem !important; gap: 8px !important; margin-bottom: 10px !important; }
+            .copyright { font-size: 0.7rem !important; padding-top: 16px !important; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    {% include 'main/navbar.html' %}
+    <!-- Hero Section -->
+    <div class="hero-wrapper">
+        <section class="hero">
+            <!-- Slideshow Images -->
+            <img src="{% static 'main/images/college.png' %}" class="hero-slide active" alt="College">
+            <img src="{% static 'main/images/collegebetter.png' %}" class="hero-slide" alt="College">
+            <img src="{% static 'main/images/entrr.png' %}" class="hero-slide" alt="College">
+            <img src="{% static 'main/images/college stu.webp' %}" class="hero-slide" alt="College">
+            
+            <div class="hero-overlay">
+                <h2>Knowledge is Power</h2>
+                <p>Empowering the next generation of leaders through innovation and research.</p>
+            </div>
+            
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Welcome Banner -->
+    <section class="welcome-section">
+        <div class="container">
+            <h3>WELCOME TO COLLEGE OF APPLIED SCIENCE PUTHUPPALLY</h3>
+            <p>
+                Established with a vision to impart quality education, the College of Applied Science stands as a beacon of learning. 
+                We are committed to nurturing talent, fostering critical thinking, and preparing students for the challenges of tomorrow 
+                through a blend of academic rigor and practical exposure.
+            </p>
+            <a href="/academics/">
+  <button class="btn-gold">Explore Our Courses</button>
+</a>
+
+
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="info-section">
+        <div class="info-grid">
+            
+            <!-- Left Column: Principal Message -->
+            <div class="card principal-card">
+                <h4>Principal's Desk</h4>
+                <div class="principal-content">
+                    <div class="principal-img-wrapper">
+                        <!-- Placeholder for Principal -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Principal Photo">
+                    </div>
+                    <div class="principal-text">
+                        <h5>Proff Binu Suguthan</h5>
+                        <span>Principal</span>
+                        <p>
+                            "Education is not just about acquiring knowledge, but about igniting a passion for learning. 
+                            Our institution strives to create an environment where every student can discover their potential 
+                            and contribute meaningfully to society."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Events & Faculty -->
+            <div class="card events-card">
+                <div class="events-box">
+                    <h4>Notice Board</h4>
+                    <ul>
+                        <li>
+                            <span class="date">OCT 24</span>
+                            Semester 4 Exam Schedule Released
+                        </li>
+                        <li>
+                            <span class="date">NOV 02</span>
+                            International Conference on AI
+                        </li>
+                        <li>
+                            <span class="date">NOV 15</span>
+                            Annual Arts Festival Registration
+                        </li>
+                        <li>
+                            <span class="date">DEC 01</span>
+                            Final Year Project Submission
+                        </li>
+                        <li>
+                            <span class="date">DEC 10</span>
+                            Winter Vacation Starts
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments-section">
+        <div class="container">
+            <div class="section-header">
+                <h3>Our Departments</h3>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="dept-grid">
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h4>Computer Science</h4>
+                    <p>Advanced labs and cutting-edge curriculum in AI, Data Science, and Software Engineering.</p>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fas fa-microchip"></i></div>
+                    <h4>Electronics</h4>
+                    <p>Focusing on embedded systems, VLSI design, and communication technologies.</p>
+                </div>
+                <div class="dept-card">
+                    <div class="dept-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Commerce</h4>
+                    <p>Comprehensive studies in finance, taxation, and computerized accounting practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Club Activities Section (UPDATED: Floating Card Stack) -->
+    <section class="club-section">
+        <div class="container">
+            <div class="section-header">
+                <h3>Beyond Academics</h3>
+                <div class="divider"></div>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">Experience the vibrant community, events, and club activities at our college.</p>
+            </div>
+            
+            <div class="club-wrapper-outer">
+                <div class="club-bg-decor"></div> <!-- Decorative shadow layer -->
+                <div class="club-slider-wrapper">
+                    <!-- Placeholders using standard images - Easy to replace later -->
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide active">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About The College</h3>
+                    <p style="color: #888; font-size: 13px; line-height: 1.6;">
+                        Dedicated to excellence in teaching, learning, and research, and to developing leaders in many disciplines who make a difference globally.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Admission Procedures</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Student Council</a></li>
+                        <li><a href="#">Library Portal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i>College of Applied Science Puthuppally
+Payyappady P.O., Puthuppally
+Kottayam – 686 034
+Pin- 686 011</p>
+                        <p><i class="fas fa-phone"></i> +91 8547005040</p>
+                        <p><i class="fas fa-envelope"></i> caspayyappady@ihrd.ac.in</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 College of Applied Science. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Slideshows -->
+    <script>
+
+
+        // --- HERO SLIDESHOW ---
+        let slideIndex = 0;
+        
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("hero-slide");
+            const dots = document.getElementsByClassName("dot");
+            
+            // Reset all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            // Reset all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            
+            // Activate current slide and dot
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+            
+            // Change image every 4 seconds
+            setTimeout(showSlides, 4000); 
+        }
+
+        // Start the hero slideshow
+        showSlides();
+
+        // --- CLUB SLIDESHOW ---
+        let clubSlideIndex = 0;
+        function showClubSlides() {
+            let i;
+            const slides = document.getElementsByClassName("club-slide");
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            clubSlideIndex++;
+            if (clubSlideIndex > slides.length) {clubSlideIndex = 1}
+            
+            slides[clubSlideIndex-1].classList.add("active");
+            
+            setTimeout(showClubSlides, 3000); // Change every 3 seconds
+        }
+        
+        // Start the club slideshow
+        showClubSlides();
+    </script>
+
+</body>
+</html>

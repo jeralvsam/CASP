@@ -1,0 +1,1 @@
+# Keep this directory so Django doesn't fail collectstatic system checks.

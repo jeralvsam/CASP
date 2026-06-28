@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - College of Applied Science, Puthuppally</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        college: {
+                            navy: '#1a2238',   
+                            dark: '#111827',   
+                            gold: '#fbbf24',   
+                            light: '#f3f4f6',  
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fbbf24;
+            transition: width .3s;
+            margin-top: 2px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .filter-btn.active {
+            background-color: #fbbf24;
+            color: #1a2238;
+            border-color: #fbbf24;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-college-light text-gray-800 font-sans antialiased"><!-- ============================================ -->
+    {% include 'main/navbar.html' %}
+
+
+    <!-- ============================================ -->
+    <!-- PAGE HEADER                                  -->
+    <!-- ============================================ -->
+    <header class="bg-college-navy py-16 text-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="relative z-10">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Campus Gallery</h2>
+            <div class="w-16 h-1 bg-college-gold mx-auto mb-4"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto font-light tracking-wide uppercase text-[10px]">Visualizing our journey of excellence and innovation</p>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- GALLERY FILTERS                              -->
+    <!-- ============================================ -->
+    <section class="py-8 bg-white border-b border-gray-200 mt-5">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-3">
+            <button class="filter-btn active px-6 py-2 rounded-full border border-gray-300 text-xs font-bold uppercase tracking-widest transition-all hover:border-college-gold" onclick="filterGallery('all', this)">All</button>
+            <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-xs font-bold uppercase tracking-widest transition-all hover:border-college-gold" onclick="filterGallery('campus', this)">Campus</button>
+            <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-xs font-bold uppercase tracking-widest transition-all hover:border-college-gold" onclick="filterGallery('labs', this)">Labs</button>
+            <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-xs font-bold uppercase tracking-widest transition-all hover:border-college-gold" onclick="filterGallery('events', this)">Events</button>
+            <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-xs font-bold uppercase tracking-widest transition-all hover:border-college-gold" onclick="filterGallery('sports', this)">Sports</button>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- IMAGE GRID                                   -->
+    <!-- ============================================ -->
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Campus 1 -->
+            <div class="gallery-item campus relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08759dfc3ef?auto=format&fit=crop&w=800&q=80" alt="College Building" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Main Campus</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Architecture & Greenery</p>
+                </div>
+            </div>
+
+            <!-- Labs 1 -->
+            <div class="gallery-item labs relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Computer Lab" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Computer Lab</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">High-performance Computing</p>
+                </div>
+            </div>
+
+            <!-- Events 1 -->
+            <div class="gallery-item events relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" alt="Cultural Fest" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Annual Fest</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Celebrating Diversity</p>
+                </div>
+            </div>
+
+            <!-- Labs 2 -->
+            <div class="gallery-item labs relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Electronics Lab" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Electronics Lab</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Hands-on Hardware Training</p>
+                </div>
+            </div>
+
+            <!-- Sports 1 -->
+            <div class="gallery-item sports relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=80" alt="Sports Meet" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Athletics Meet</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Spirit of Competition</p>
+                </div>
+            </div>
+
+            <!-- Events 2 -->
+            <div class="gallery-item events relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Seminar Hall" class="w-full h-64 object-cover transition-transform duration-500">
+                <div class="absolute inset-0 bg-college-navy/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-6">
+                    <i class="fa-solid fa-expand text-3xl text-college-gold mb-3"></i>
+                    <h4 class="font-bold text-sm uppercase tracking-widest">Tech Seminar</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Expert Knowledge Exchange</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- LIGHTBOX MODAL                               -->
+    <!-- ============================================ -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex flex-col justify-center items-center hidden transition-all">
+        <button class="absolute top-6 right-6 text-white text-3xl hover:text-college-gold" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[80%] rounded-lg shadow-2xl border-2 border-white/10">
+        <div class="mt-6 text-center text-white">
+            <h5 id="lightbox-title" class="text-xl font-serif font-bold tracking-wider"></h5>
+            <p id="lightbox-desc" class="text-xs text-college-gold font-bold uppercase tracking-widest mt-2"></p>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="bg-college-dark text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h4 class="font-bold text-lg uppercase tracking-wider mb-6">College of <br>Applied Science</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed mb-6">Managed by IHRD, A Government of Kerala Undertaking. Payyappady P.O, Puthuppally, Kottayam.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-[10px] uppercase tracking-widest text-college-gold mb-6">Quick Links</h5>
+                    <ul class="text-xs text-gray-500 space-y-3">
+                        <li><a href="{% url 'home' %}" class="hover:text-white transition-colors">Home Page</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Admissions 2026</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Departments</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-[10px] uppercase tracking-widest text-college-gold mb-6">Resources</h5>
+                    <ul class="text-xs text-gray-500 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library Access</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Downloads</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-[10px] uppercase tracking-widest text-college-gold mb-6">Contact</h5>
+                    <ul class="text-xs text-gray-500 space-y-4">
+                        <li class="flex gap-3"><i class="fa-solid fa-phone text-college-gold"></i> +91 481 2351631</li>
+                        <li class="flex gap-3"><i class="fa-solid fa-envelope text-college-gold"></i> casputhuppally@ihrd.ac.in</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-[10px] text-gray-600 uppercase tracking-widest">
+                &copy; 2026 College of Applied Science. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Filter Logic
+        function filterGallery(category, btn) {
+            // Update Active Button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter Items
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 10);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbTitle = document.getElementById('lightbox-title');
+        const lbDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h4').innerText;
+            const desc = element.querySelector('p').innerText;
+
+            lbImg.src = img.src;
+            lbTitle.innerText = title;
+            lbDesc.innerText = desc;
+
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        // Add simple mobile logic if needed here as in index.html
+    </script>
+</body>
+</html>
