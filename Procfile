@@ -1,1 +1,1 @@
-web: gunicorn casp.wsgi
+web: python manage.py collectstatic --noinput && gunicorn casp.wsgi

@@ -23,5 +23,11 @@ def placement(request):
 def gallery(request):
     return render(request, 'main/gallery.html')
 
+def students_corner(request):
+    return render(request, 'main/home.html')
+
+def iqac(request):
+    return render(request, 'main/home.html')
+
 def contact(request):
     return render(request, 'main/contact.html')
