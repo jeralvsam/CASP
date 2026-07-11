@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -386,6 +387,62 @@
             color: #666;
         }
 
+        /* --- POSTER SECTION --- */
+        .poster-section {
+            scroll-margin-top: 20px;
+        }
+
+        .poster-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .poster-frame {
+            position: relative;
+            max-width: 520px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(26,43,66,0.18), 0 4px 12px rgba(0,0,0,0.10);
+            border: 4px solid var(--accent-gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .poster-frame:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 28px 60px rgba(26,43,66,0.22), 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .poster-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .poster-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-blue);
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .poster-caption {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+        }
+
         /* Mobile Responsive */
         /* Mobile Responsive */
         @media (max-width: 900px) {
@@ -529,6 +586,7 @@
             <h3>Quick Links</h3>
             <div class="sidebar-links">
                 <a href="#overview" class="active">Overview <i class="fas fa-chevron-right"></i></a>
+                <a href="#poster">Placement Poster <i class="fas fa-chevron-right"></i></a>
                 <a href="#statistics">Placement Statistics <i class="fas fa-chevron-right"></i></a>
                 <a href="#recruiters">Our Recruiters <i class="fas fa-chevron-right"></i></a>
                 <a href="#activities">Training Activities <i class="fas fa-chevron-right"></i></a>
@@ -552,6 +610,27 @@
                     <p class="text-content">
                         Our rigorous placement process includes pre-placement talks, written tests, group discussions, and personal interviews. We have a consistent track record of placing our students in top-tier IT and Core companies.
                     </p>
+                </div>
+            </div>
+
+            <!-- PLACEMENT POSTER SECTION -->
+            <div class="content-block poster-section" id="poster">
+                <div class="block-header">
+                    <i class="fas fa-image"></i>
+                    <h2>Placement Highlights</h2>
+                </div>
+                <div class="block-content">
+                    <div class="poster-wrapper">
+                        <div>
+                            <span class="poster-badge">
+                                <i class="fas fa-trophy"></i> Campus Placement Drive 2025
+                            </span>
+                            <div class="poster-frame">
+                                <img src="{% static 'main/images/Placement.jpeg' %}" alt="Placement Poster - Career Guidance & Placement Unit, College of Applied Science Puthuppally">
+                            </div>
+                            <p class="poster-caption">Career Guidance &amp; Placement Unit &mdash; CAS Puthuppally, Kottayam</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
