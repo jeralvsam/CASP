@@ -31,3 +31,6 @@ def iqac(request):
 
 def contact(request):
     return render(request, 'main/contact.html')
+
+def principal_message(request):
+    return render(request, 'main/principal_message.html')

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,13 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+
     <style>
         /* --- CSS STYLES --- */
-        
+
         /* General Reset */
         * {
             margin: 0;
@@ -22,9 +25,12 @@
         }
 
         :root {
-            --primary-blue: #1a2b42; /* Deep Navy Blue */
-            --accent-gold: #cfaa56;   /* Muted Gold/Beige */
-            --light-bg: #eef2f5;      /* Light Gray-Blue background */
+            --primary-blue: #1a2b42;
+            /* Deep Navy Blue */
+            --accent-gold: #cfaa56;
+            /* Muted Gold/Beige */
+            --light-bg: #eef2f5;
+            /* Light Gray-Blue background */
             --white: #ffffff;
             --text-dark: #333333;
             --text-light: #f4f4f4;
@@ -33,7 +39,8 @@
         body {
             background-color: var(--light-bg);
             color: var(--text-dark);
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
         }
 
         /* Container extends to full width with padding */
@@ -41,7 +48,8 @@
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 40px; /* Consistent padding */
+            padding: 0 40px;
+            /* Consistent padding */
         }
 
         a {
@@ -58,6 +66,7 @@
         .main-nav a.active {
             color: var(--accent-gold);
         }
+
         .main-nav a.active::after {
             width: 100%;
         }
@@ -66,15 +75,16 @@
 
         .hero-wrapper {
             background: white;
-            padding: 4px 0; /* Vertical padding for white gaps */
-            max-width: 100%; 
+            padding: 4px 0;
+            /* Vertical padding for white gaps */
+            max-width: 100%;
             margin: 0;
         }
 
         .hero {
             position: relative;
             width: 100%;
-            height: 400px; 
+            height: 400px;
             overflow: hidden;
             background-color: #000;
         }
@@ -87,26 +97,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(26, 43, 66, 0.4); 
-            z-index: 1; 
-            pointer-events: none; 
+            background-color: rgba(26, 43, 66, 0.4);
+            z-index: 1;
+            pointer-events: none;
         }
 
         /* Slideshow images */
         .hero img {
-            position: absolute; 
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0; 
+            opacity: 0;
             transition: opacity 1s ease-in-out, transform 5s ease;
             z-index: 0;
         }
 
         .hero img.active {
-            opacity: 0.9; 
+            opacity: 0.9;
         }
 
         .hero:hover img.active {
@@ -120,23 +130,23 @@
             transform: translate(-50%, -50%);
             text-align: center;
             width: 90%;
-            z-index: 2; 
+            z-index: 2;
         }
 
         .hero-overlay h2 {
             color: white;
-            font-size: 3.5rem; 
-            font-family: 'Times New Roman', Times, serif; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-size: 3.5rem;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             margin-bottom: 10px;
             font-style: italic;
             letter-spacing: 0;
         }
-        
+
         .hero-overlay p {
             color: #eee;
             font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
             font-weight: 400;
             letter-spacing: 0;
         }
@@ -146,13 +156,13 @@
             bottom: 20px;
             width: 100%;
             text-align: center;
-            z-index: 2; 
+            z-index: 2;
         }
 
         .dot {
             height: 12px;
             width: 12px;
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             display: inline-block;
             margin: 0 5px;
@@ -166,19 +176,19 @@
             transform: scale(1.2);
             box-shadow: none;
         }
-        
+
         .dot:hover {
             border: none;
         }
 
         /* --- WELCOME BANNER --- */
-        
+
         .welcome-section {
             background-color: var(--primary-blue);
             color: white;
             text-align: center;
             padding: 60px 20px;
-            max-width: 100%; 
+            max-width: 100%;
             margin: 0 auto;
             position: relative;
         }
@@ -186,14 +196,14 @@
         .welcome-section h3 {
             font-size: 28px;
             margin-bottom: 20px;
-            font-weight: 700; 
+            font-weight: 700;
             letter-spacing: 1px;
             color: white;
             text-transform: uppercase;
         }
 
         .welcome-section p {
-            max-width: 900px; 
+            max-width: 900px;
             margin: 0 auto 30px auto;
             line-height: 1.8;
             font-size: 15px;
@@ -221,7 +231,7 @@
         }
 
         /* --- INFO GRID --- */
-        
+
         .info-section {
             background: var(--light-bg);
             padding: 0;
@@ -232,8 +242,8 @@
             grid-template-columns: 2fr 1fr;
             gap: 40px;
             background: white;
-            padding: 50px 40px; 
-            width: 100%; 
+            padding: 50px 40px;
+            width: 100%;
         }
 
         .card h4 {
@@ -249,48 +259,103 @@
             display: inline-block;
         }
 
-        /* Principal Card */
-        .principal-content {
+        /* ── Principal Message Card (Homepage) ── */
+        .principal-card-section {
+            background: #f4f7f9;
+            padding: 70px 40px;
+        }
+
+        .principal-cards-grid {
             display: flex;
-            gap: 25px;
-            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .principal-content img {
-            width: 140px;
-            height: 160px;
+        .principal-msg-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(26,43,66,0.10);
+            overflow: hidden;
+            width: 340px;
+            flex-shrink: 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e8edf3;
+        }
+
+        .principal-msg-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(26,43,66,0.15);
+        }
+
+        .principal-msg-card-photo {
+            width: 100%;
+            height: 280px;
             object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .principal-text h5 {
-            font-size: 18px;
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        
-        .principal-text span {
-            font-size: 12px;
-            color: var(--accent-gold);
-            font-weight: bold;
-            text-transform: uppercase;
+            object-position: top center;
             display: block;
-            margin-bottom: 15px;
         }
 
-        .principal-text p {
+        .principal-msg-card-body {
+            padding: 24px 28px 28px;
+        }
+
+        .principal-msg-card-body h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+
+        .principal-msg-card-body .p-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .principal-msg-card-body p {
             font-size: 14px;
-            color: #555;
-            line-height: 1.6;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
             font-style: italic;
+        }
+
+        .btn-read-msg {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-blue);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .btn-read-msg:hover {
+            background: #152840;
+            transform: translateX(3px);
+        }
+
+        .btn-read-msg i {
+            font-size: 11px;
         }
 
         /* Events & Faculty */
         .split-right {
             display: flex;
-            height: 100%; 
+            height: 100%;
         }
 
         .events-card {
@@ -300,15 +365,15 @@
 
         .events-box {
             flex: 1;
-            width: 100%; 
+            width: 100%;
         }
-        
+
         .events-box ul {
             border-left: 2px solid #eee;
         }
 
         .events-box li {
-            padding: 15px 0 15px 20px; 
+            padding: 15px 0 15px 20px;
             font-size: 14px;
             color: #444;
             border-bottom: 1px solid #f9f9f9;
@@ -316,14 +381,14 @@
             transition: 0.2s;
             cursor: pointer;
         }
-        
+
         .events-box li:hover {
             color: var(--primary-blue);
             background: #fafafa;
             border-left: 2px solid var(--accent-gold);
-            padding-left: 20px; 
+            padding-left: 20px;
         }
-        
+
         .events-box li span.date {
             display: block;
             font-size: 11px;
@@ -377,7 +442,7 @@
 
         .dept-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             border-bottom: 3px solid var(--accent-gold);
         }
 
@@ -416,11 +481,11 @@
         /* --- CLUB ACTIVITIES SECTION --- */
         .club-section {
             padding: 80px 40px;
-            background-color: white; 
+            background-color: white;
             position: relative;
-            overflow: hidden; 
+            overflow: hidden;
         }
-        
+
         .club-section::before {
             content: '';
             position: absolute;
@@ -428,7 +493,7 @@
             right: -100px;
             width: 300px;
             height: 300px;
-            background-color: rgba(207, 170, 86, 0.1); 
+            background-color: rgba(207, 170, 86, 0.1);
             border-radius: 50%;
             z-index: 0;
         }
@@ -447,9 +512,9 @@
             width: 100%;
             height: 500px;
             overflow: hidden;
-            border: 15px solid #fff; 
+            border: 15px solid #fff;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             background-color: #000;
             transform: rotate(-2deg);
             transition: transform 0.5s ease;
@@ -485,25 +550,25 @@
 
         .club-slide.active {
             opacity: 1;
-            transform: scale(1.05); 
+            transform: scale(1.05);
         }
 
         /* Footer */
         footer {
-            background-color: #152233; 
+            background-color: #152233;
             color: #bbb;
             padding: 60px 0 30px;
             border-top: none;
             width: 100%;
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-col h3 {
             color: white;
             font-size: 16px;
@@ -514,21 +579,21 @@
             padding-bottom: 0;
             display: block;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             font-size: inherit;
             color: inherit;
         }
-        
+
         .footer-links a:hover {
             color: var(--accent-gold);
             padding-left: 5px;
         }
-        
+
         .contact-info p {
             display: flex;
             align-items: center;
@@ -543,11 +608,11 @@
             width: auto;
             text-align: left;
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 12px;
             color: inherit;
         }
@@ -559,26 +624,37 @@
         @media (max-width: 900px) {
 
             /* ── Base ── */
-            body { font-family: 'Roboto', sans-serif; }
-            .container { padding: 0 18px; }
+            body {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .container {
+                padding: 0 18px;
+            }
 
             /* ── Hero ── */
-            .hero-wrapper { padding: 0; background: #000; }
+            .hero-wrapper {
+                padding: 0;
+                background: #000;
+            }
+
             .hero {
                 height: 58vw;
                 min-height: 210px;
                 max-height: 320px;
             }
+
             /* Stronger gradient so text is always legible */
             .hero::after {
-                background: linear-gradient(
-                    to top,
-                    rgba(10, 18, 30, 0.85) 0%,
-                    rgba(26, 43, 66, 0.35) 60%,
-                    transparent 100%
-                ) !important;
+                background: linear-gradient(to top,
+                        rgba(10, 18, 30, 0.85) 0%,
+                        rgba(26, 43, 66, 0.35) 60%,
+                        transparent 100%) !important;
             }
-            .hero:hover img.active { transform: none; }
+
+            .hero:hover img.active {
+                transform: none;
+            }
 
             /* Text sits at BOTTOM of hero, not centre */
             .hero-overlay {
@@ -594,30 +670,40 @@
                 border: none !important;
                 box-shadow: none !important;
             }
+
             .hero-overlay h2 {
                 font-size: 1.45rem !important;
                 font-family: 'Playfair Display', serif !important;
                 font-weight: 700;
                 line-height: 1.25;
                 margin-bottom: 4px;
-                text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
                 color: #fff;
             }
+
             .hero-overlay p {
                 font-size: 0.78rem !important;
-                color: rgba(255,255,255,0.82) !important;
+                color: rgba(255, 255, 255, 0.82) !important;
                 line-height: 1.4;
-                text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
             }
 
             /* Carousel dots — smaller, closer to edge */
-            .carousel-dots { bottom: 12px; }
-            .dot { width: 7px; height: 7px; margin: 0 3px; }
+            .carousel-dots {
+                bottom: 12px;
+            }
+
+            .dot {
+                width: 7px;
+                height: 7px;
+                margin: 0 3px;
+            }
 
             /* ── Welcome Banner ── */
             .welcome-section {
                 padding: 36px 20px 32px !important;
             }
+
             .welcome-section h3 {
                 font-family: 'Playfair Display', serif !important;
                 font-size: 1.25rem !important;
@@ -627,12 +713,14 @@
                 letter-spacing: 0.3px;
                 text-transform: none !important;
             }
+
             .welcome-section p {
                 font-size: 0.84rem !important;
                 line-height: 1.7;
-                color: rgba(255,255,255,0.75) !important;
+                color: rgba(255, 255, 255, 0.75) !important;
                 margin-bottom: 22px !important;
             }
+
             .btn-gold {
                 display: inline-block;
                 border-radius: 50px !important;
@@ -655,9 +743,10 @@
                 background: #fff !important;
                 border-radius: 16px !important;
                 padding: 20px !important;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
                 border: 1px solid #e8edf3 !important;
             }
+
             .card h4 {
                 text-align: left !important;
                 display: block !important;
@@ -667,6 +756,7 @@
                 border-bottom: none !important;
                 margin-bottom: 14px !important;
             }
+
             .principal-content {
                 flex-direction: column !important;
                 align-items: center !important;
@@ -676,25 +766,29 @@
                 padding: 0 !important;
                 border: none !important;
             }
+
             /* Fix: wrapper div must not shrink the image */
             .principal-img-wrapper {
                 flex-shrink: 0 !important;
                 width: 100px !important;
                 height: 100px !important;
             }
+
             .principal-content img {
                 width: 100px !important;
                 height: 100px !important;
                 min-width: 100px !important;
                 border-radius: 50% !important;
                 border: 3px solid var(--accent-gold) !important;
-                box-shadow: 0 4px 14px rgba(0,0,0,0.15) !important;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
                 object-fit: cover !important;
                 display: block !important;
             }
+
             .principal-text {
                 text-align: center;
             }
+
             .principal-text h5 {
                 font-size: 1rem !important;
                 font-family: 'Roboto', sans-serif !important;
@@ -702,10 +796,12 @@
                 color: var(--primary-blue);
                 margin-bottom: 2px;
             }
+
             .principal-text span {
                 font-size: 0.68rem !important;
                 margin-bottom: 10px !important;
             }
+
             .principal-text p {
                 font-size: 0.8rem !important;
                 line-height: 1.6;
@@ -717,10 +813,15 @@
                 background: #fff !important;
                 border-radius: 16px !important;
                 padding: 20px 18px !important;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
                 border: 1px solid #e8edf3 !important;
             }
-            .events-box ul { border-left: none !important; padding: 0 !important; }
+
+            .events-box ul {
+                border-left: none !important;
+                padding: 0 !important;
+            }
+
             .events-box li {
                 display: block !important;
                 background: transparent !important;
@@ -735,14 +836,17 @@
                 line-height: 1.45 !important;
                 transition: background 0.15s;
             }
+
             .events-box li:last-child {
                 border-bottom: none !important;
             }
+
             .events-box li:hover {
                 background: #fafbff !important;
                 box-shadow: none !important;
                 border-left-color: var(--primary-blue) !important;
             }
+
             .events-box li span.date {
                 display: inline-block !important;
                 background: none !important;
@@ -758,70 +862,104 @@
                 line-height: 1 !important;
             }
 
-            /* ── Departments Section ── */
+            /* ── Principal Card Mobile ── */
+            .principal-card-section {
+                padding: 36px 16px !important;
+            }
+            .principal-msg-card {
+                width: 100% !important;
+                max-width: 380px;
+            }
             .departments-section {
                 padding: 28px 16px !important;
             }
-            .section-header { margin-bottom: 20px !important; }
+
+            .section-header {
+                margin-bottom: 20px !important;
+            }
+
             .section-header h3 {
                 font-family: 'Playfair Display', serif !important;
                 font-size: 1.2rem !important;
                 letter-spacing: 0.3px !important;
             }
+
             .dept-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 12px !important;
             }
+
             .dept-card {
                 padding: 18px 12px !important;
                 border-radius: 12px !important;
                 border: 1px solid #e8edf3 !important;
                 border-bottom: 3px solid transparent !important;
             }
+
             .dept-card:hover {
                 border-bottom-color: var(--accent-gold) !important;
             }
+
             .dept-icon {
                 width: 44px !important;
                 height: 44px !important;
                 font-size: 18px !important;
                 margin-bottom: 10px !important;
             }
+
             .dept-card h4 {
                 font-size: 0.75rem !important;
                 margin-bottom: 6px !important;
                 border-bottom: none !important;
                 display: block !important;
             }
+
             .dept-card p {
                 font-size: 0.72rem !important;
                 line-height: 1.45 !important;
             }
 
             /* ── Club / Gallery Slider ── */
-            .club-section { padding: 28px 16px !important; }
-            .club-wrapper-outer { padding: 0 !important; }
+            .club-section {
+                padding: 28px 16px !important;
+            }
+
+            .club-wrapper-outer {
+                padding: 0 !important;
+            }
+
             .club-slider-wrapper {
                 height: 200px !important;
                 border: 6px solid #fff !important;
                 border-radius: 14px !important;
                 transform: none !important;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
             }
-            .club-slider-wrapper:hover { transform: none !important; }
-            .club-bg-decor { display: none !important; }
-            .club-slide.active { transform: none !important; }
+
+            .club-slider-wrapper:hover {
+                transform: none !important;
+            }
+
+            .club-bg-decor {
+                display: none !important;
+            }
+
+            .club-slide.active {
+                transform: none !important;
+            }
 
             /* ── Footer ── */
             footer {
                 padding: 36px 0 20px !important;
             }
+
             .footer-grid {
                 grid-template-columns: 1fr !important;
                 gap: 24px !important;
                 padding: 0 18px;
                 margin-bottom: 24px !important;
             }
+
             .footer-col h3 {
                 font-size: 0.72rem !important;
                 letter-spacing: 1.5px !important;
@@ -829,14 +967,29 @@
                 border-left: 3px solid var(--accent-gold);
                 padding-left: 8px;
             }
-            .footer-links li { margin-bottom: 7px !important; }
-            .footer-links a { font-size: 0.82rem !important; }
-            .contact-info p { font-size: 0.82rem !important; gap: 8px !important; margin-bottom: 10px !important; }
-            .copyright { font-size: 0.7rem !important; padding-top: 16px !important; }
-        }
 
+            .footer-links li {
+                margin-bottom: 7px !important;
+            }
+
+            .footer-links a {
+                font-size: 0.82rem !important;
+            }
+
+            .contact-info p {
+                font-size: 0.82rem !important;
+                gap: 8px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .copyright {
+                font-size: 0.7rem !important;
+                padding-top: 16px !important;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Main Header -->
@@ -849,12 +1002,12 @@
             <img src="{% static 'main/images/collegebetter.png' %}" class="hero-slide" alt="College">
             <img src="{% static 'main/images/entrr.png' %}" class="hero-slide" alt="College">
             <img src="{% static 'main/images/college stu.webp' %}" class="hero-slide" alt="College">
-            
+
             <div class="hero-overlay">
                 <h2>Knowledge is Power</h2>
                 <p>Empowering the next generation of leaders through innovation and research.</p>
             </div>
-            
+
             <div class="carousel-dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
@@ -870,43 +1023,52 @@
         <div class="container">
             <h3>WELCOME TO COLLEGE OF APPLIED SCIENCE PUTHUPPALLY</h3>
             <p>
-                Established with a vision to impart quality education, the College of Applied Science stands as a beacon of learning. 
-                We are committed to nurturing talent, fostering critical thinking, and preparing students for the challenges of tomorrow 
+                Established with a vision to impart quality education, the College of Applied Science stands as a beacon
+                of learning.
+                We are committed to nurturing talent, fostering critical thinking, and preparing students for the
+                challenges of tomorrow
                 through a blend of academic rigor and practical exposure.
             </p>
             <a href="/academics/">
-  <button class="btn-gold">Explore Our Courses</button>
-</a>
+                <button class="btn-gold">Explore Our Courses</button>
+            </a>
 
 
         </div>
     </section>
 
-    <!-- Main Content Grid -->
-    <section class="info-section">
-        <div class="info-grid">
-            
-            <!-- Left Column: Principal Message -->
-            <div class="card principal-card">
-                <h4>Principal's Desk</h4>
-                <div class="principal-content">
-                    <div class="principal-img-wrapper">
-                        <!-- Placeholder for Principal -->
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Principal Photo">
-                    </div>
-                    <div class="principal-text">
-                        <h5>Proff Binu Suguthan</h5>
-                        <span>Principal</span>
-                        <p>
-                            "Education is not just about acquiring knowledge, but about igniting a passion for learning. 
-                            Our institution strives to create an environment where every student can discover their potential 
-                            and contribute meaningfully to society."
-                        </p>
+    <!-- Principal's Message Card Section -->
+    <section class="principal-card-section">
+        <div style="max-width:1100px; margin:0 auto;">
+            <div style="text-align:center; margin-bottom:40px;">
+                <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-gold);margin-bottom:8px;">Leadership</p>
+                <h2 style="font-size:28px;color:var(--primary-blue);font-weight:700;">Message from the Principal</h2>
+                <div style="width:50px;height:3px;background:var(--accent-gold);margin:12px auto 0;"></div>
+            </div>
+            <div class="principal-cards-grid">
+                <!-- Principal Card -->
+                <div class="principal-msg-card">
+                    <img class="principal-msg-card-photo"
+                         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                         alt="Prof. Binu Suguthan - Principal">
+                    <div class="principal-msg-card-body">
+                        <h3>Principal's Message</h3>
+                        <span class="p-title">Prof. Binu Suguthan &mdash; Principal</span>
+                        <p>"Education is not merely about acquiring knowledge — it is about igniting a passion for learning that lasts a lifetime..."</p>
+                        <a href="{% url 'principal_message' %}" class="btn-read-msg">
+                            <i class="fas fa-chevron-right"></i> Read Message
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Right Column: Events & Faculty -->
+    <!-- Main Content Grid (Notice Board) -->
+    <section class="info-section">
+        <div class="info-grid">
+
+            <!-- Notice Board -->
             <div class="card events-card">
                 <div class="events-box">
                     <h4>Notice Board</h4>
@@ -945,7 +1107,7 @@
                 <h3>Our Departments</h3>
                 <div class="divider"></div>
             </div>
-            
+
             <div class="dept-grid">
                 <div class="dept-card">
                     <div class="dept-icon"><i class="fas fa-laptop-code"></i></div>
@@ -972,16 +1134,20 @@
             <div class="section-header">
                 <h3>Beyond Academics</h3>
                 <div class="divider"></div>
-                <p style="margin-top: 15px; color: #666; font-size: 14px;">Experience the vibrant community, events, and club activities at our college.</p>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">Experience the vibrant community, events, and
+                    club activities at our college.</p>
             </div>
-            
+
             <div class="club-wrapper-outer">
                 <div class="club-bg-decor"></div> <!-- Decorative shadow layer -->
                 <div class="club-slider-wrapper">
                     <!-- Placeholders using standard images - Easy to replace later -->
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide active">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide">
-                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="club-slide">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="club-slide active">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="club-slide">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="club-slide">
                 </div>
             </div>
         </div>
@@ -994,10 +1160,11 @@
                 <div class="footer-col">
                     <h3>About The College</h3>
                     <p style="color: #888; font-size: 13px; line-height: 1.6;">
-                        Dedicated to excellence in teaching, learning, and research, and to developing leaders in many disciplines who make a difference globally.
+                        Dedicated to excellence in teaching, learning, and research, and to developing leaders in many
+                        disciplines who make a difference globally.
                     </p>
                 </div>
-                
+
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
@@ -1012,15 +1179,15 @@
                     <h3>Contact Us</h3>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i>College of Applied Science Puthuppally
-Payyappady P.O., Puthuppally
-Kottayam – 686 034
-Pin- 686 011</p>
+                            Payyappady P.O., Puthuppally
+                            Kottayam – 686 034
+                            Pin- 686 011</p>
                         <p><i class="fas fa-phone"></i> +91 8547005040</p>
                         <p><i class="fas fa-envelope"></i> caspayyappady@ihrd.ac.in</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 &copy; 2026 College of Applied Science. All Rights Reserved.
             </div>
@@ -1033,12 +1200,12 @@ Pin- 686 011</p>
 
         // --- HERO SLIDESHOW ---
         let slideIndex = 0;
-        
+
         function showSlides() {
             let i;
             const slides = document.getElementsByClassName("hero-slide");
             const dots = document.getElementsByClassName("dot");
-            
+
             // Reset all slides
             for (i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
@@ -1047,16 +1214,16 @@ Pin- 686 011</p>
             for (i = 0; i < dots.length; i++) {
                 dots[i].classList.remove("active");
             }
-            
+
             slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            
+            if (slideIndex > slides.length) { slideIndex = 1 }
+
             // Activate current slide and dot
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
-            
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+
             // Change image every 4 seconds
-            setTimeout(showSlides, 4000); 
+            setTimeout(showSlides, 4000);
         }
 
         // Start the hero slideshow
@@ -1067,22 +1234,23 @@ Pin- 686 011</p>
         function showClubSlides() {
             let i;
             const slides = document.getElementsByClassName("club-slide");
-            
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
             }
-            
+
             clubSlideIndex++;
-            if (clubSlideIndex > slides.length) {clubSlideIndex = 1}
-            
-            slides[clubSlideIndex-1].classList.add("active");
-            
+            if (clubSlideIndex > slides.length) { clubSlideIndex = 1 }
+
+            slides[clubSlideIndex - 1].classList.add("active");
+
             setTimeout(showClubSlides, 3000); // Change every 3 seconds
         }
-        
+
         // Start the club slideshow
         showClubSlides();
     </script>
 
 </body>
+
 </html>

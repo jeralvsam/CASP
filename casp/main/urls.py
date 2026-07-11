@@ -14,4 +14,5 @@ urlpatterns = [
     path('students-corner/', views.students_corner, name='students_corner'),
     path('iqac/', views.iqac, name='iqac'),
     path('contact/', views.contact, name='contact'),
+    path('principal-message/', views.principal_message, name='principal_message'),
 ]
