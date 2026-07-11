@@ -1,0 +1,356 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal's Message - College of Applied Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-blue: #1a2b42;
+            --accent-gold: #cfaa56;
+            --light-bg: #f4f7f9;
+        }
+
+        body {
+            background: var(--light-bg);
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ── Page Banner ── */
+        .page-banner {
+            background: linear-gradient(135deg, #1a2b42 60%, #243a55 100%);
+            padding: 60px 40px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .banner-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .page-banner h1 {
+            font-size: 2.6rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Main Content ── */
+        .pm-wrapper {
+            max-width: 1000px;
+            margin: 60px auto 80px;
+            padding: 0 24px;
+        }
+
+        .pm-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(26,43,66,0.10);
+            overflow: hidden;
+            border: 1px solid #e4eaf2;
+        }
+
+        /* Top: Photo + Identity Bar */
+        .pm-photo-section {
+            position: relative;
+            background: var(--primary-blue);
+        }
+
+        .pm-photo-section img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .pm-identity-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,43,66,0.95) 0%, transparent 100%);
+            padding: 40px 40px 28px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .pm-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4px;
+        }
+
+        .pm-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pm-gold-badge {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        /* Message Body */
+        .pm-body {
+            padding: 50px 55px 55px;
+        }
+
+        .pm-opening-quote {
+            font-family: 'Times New Roman', serif;
+            font-size: 100px;
+            line-height: 0.6;
+            color: rgba(207,170,86,0.2);
+            display: block;
+            margin-bottom: 12px;
+            user-select: none;
+        }
+
+        .pm-intro {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--primary-blue);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 20px;
+        }
+
+        .pm-para {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.85;
+            margin-bottom: 22px;
+        }
+
+        .pm-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 36px 0;
+            border-radius: 2px;
+        }
+
+        /* Signature */
+        .pm-signature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--light-bg);
+            padding: 24px 28px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+            margin-top: 40px;
+        }
+
+        .pm-signature-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            border: 3px solid var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        .pm-sig-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 3px;
+        }
+
+        .pm-sig-title {
+            font-size: 12px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Back button */
+        .pm-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            color: var(--primary-blue);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .pm-back-btn:hover { opacity: 1; }
+
+        /* Footer */
+        footer {
+            background: #152233;
+            color: #bbb;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 12px;
+        }
+
+        footer a { color: var(--accent-gold); }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .page-banner h1 { font-size: 1.8rem !important; }
+            .pm-body { padding: 28px 20px 36px !important; }
+            .pm-identity-overlay { padding: 20px 20px 18px !important; flex-direction: column; align-items: flex-start; gap: 10px; }
+            .pm-name { font-size: 20px !important; }
+            .pm-intro { font-size: 17px !important; }
+            .pm-para { font-size: 15px !important; }
+            .pm-signature { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'main/navbar.html' %}
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <span class="banner-tag">Leadership &amp; Vision</span>
+        <h1>Principal's Message</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="pm-wrapper">
+
+        <a href="{% url 'home' %}" class="pm-back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <div class="pm-card">
+
+            <!-- Photo + Identity -->
+            <div class="pm-photo-section">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                     alt="Prof. Binu Suguthan - Principal">
+                <div class="pm-identity-overlay">
+                    <div>
+                        <div class="pm-name">Prof. Binu Suguthan</div>
+                        <div class="pm-title">Principal, College of Applied Science Puthuppally</div>
+                    </div>
+                    <span class="pm-gold-badge">Principal's Desk</span>
+                </div>
+            </div>
+
+            <!-- Message Body -->
+            <div class="pm-body">
+
+                <span class="pm-opening-quote">&ldquo;</span>
+
+                <p class="pm-intro">
+                    Education is not merely about acquiring knowledge — it is about igniting a passion for learning
+                    that lasts a lifetime.
+                </p>
+
+                <div class="pm-divider"></div>
+
+                <p class="pm-para">
+                    Dear Students, Parents, and Well-wishers,
+                </p>
+
+                <p class="pm-para">
+                    It is with great pride and a deep sense of responsibility that I welcome you to the College of
+                    Applied Science, Puthuppally. Our institution has stood as a pillar of academic excellence
+                    for decades, nurturing generations of bright minds who have gone on to make a meaningful
+                    difference in society and the world at large.
+                </p>
+
+                <p class="pm-para">
+                    At CAS Puthuppally, we believe that a college is more than just a place of learning —
+                    it is a community where students discover their identities, build lifelong friendships,
+                    and develop the skills and values that will guide them throughout their lives. Our dedicated
+                    faculty, state-of-the-art facilities, and vibrant campus life all work together to create
+                    an environment where every student can thrive.
+                </p>
+
+                <p class="pm-para">
+                    We are committed to providing our students with the best possible education, combining
+                    rigorous academic training with practical exposure to the real world. Our curriculum is
+                    designed to be relevant, forward-looking, and responsive to the evolving needs of industry
+                    and society. We emphasize critical thinking, creativity, ethical leadership, and a spirit
+                    of inquiry — qualities that are essential for success in the 21st century.
+                </p>
+
+                <p class="pm-para">
+                    I invite all prospective students to be a part of this dynamic and inspiring community.
+                    Come, be a part of our journey towards excellence. Together, we will build a future that
+                    is bright, meaningful, and full of promise.
+                </p>
+
+                <p class="pm-para" style="font-style: italic; color: var(--primary-blue); font-weight: 500;">
+                    &ldquo;The roots of education are bitter, but the fruit is sweet.&rdquo; — Aristotle
+                </p>
+
+                <!-- Signature -->
+                <div class="pm-signature">
+                    <img class="pm-signature-avatar"
+                         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                         alt="Prof. Binu Suguthan">
+                    <div>
+                        <div class="pm-sig-name">Prof. Binu Suguthan</div>
+                        <div class="pm-sig-title">Principal &mdash; College of Applied Science, Puthuppally</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 College of Applied Science Puthuppally. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

@@ -259,42 +259,97 @@
             display: inline-block;
         }
 
-        /* Principal Card */
-        .principal-content {
+        /* ── Principal Message Card (Homepage) ── */
+        .principal-card-section {
+            background: #f4f7f9;
+            padding: 70px 40px;
+        }
+
+        .principal-cards-grid {
             display: flex;
-            gap: 25px;
-            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .principal-content img {
-            width: 140px;
-            height: 160px;
+        .principal-msg-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(26,43,66,0.10);
+            overflow: hidden;
+            width: 340px;
+            flex-shrink: 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e8edf3;
+        }
+
+        .principal-msg-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(26,43,66,0.15);
+        }
+
+        .principal-msg-card-photo {
+            width: 100%;
+            height: 280px;
             object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .principal-text h5 {
-            font-size: 18px;
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-
-        .principal-text span {
-            font-size: 12px;
-            color: var(--accent-gold);
-            font-weight: bold;
-            text-transform: uppercase;
+            object-position: top center;
             display: block;
-            margin-bottom: 15px;
         }
 
-        .principal-text p {
+        .principal-msg-card-body {
+            padding: 24px 28px 28px;
+        }
+
+        .principal-msg-card-body h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+
+        .principal-msg-card-body .p-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .principal-msg-card-body p {
             font-size: 14px;
-            color: #555;
-            line-height: 1.6;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
             font-style: italic;
+        }
+
+        .btn-read-msg {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-blue);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .btn-read-msg:hover {
+            background: #152840;
+            transform: translateX(3px);
+        }
+
+        .btn-read-msg i {
+            font-size: 11px;
         }
 
         /* Events & Faculty */
@@ -807,7 +862,14 @@
                 line-height: 1 !important;
             }
 
-            /* ── Departments Section ── */
+            /* ── Principal Card Mobile ── */
+            .principal-card-section {
+                padding: 36px 16px !important;
+            }
+            .principal-msg-card {
+                width: 100% !important;
+                max-width: 380px;
+            }
             .departments-section {
                 padding: 28px 16px !important;
             }
@@ -975,33 +1037,38 @@
         </div>
     </section>
 
-    <!-- Main Content Grid -->
-    <section class="info-section">
-        <div class="info-grid">
-
-            <!-- Left Column: Principal Message -->
-            <div class="card principal-card">
-                <h4>Principal's Desk</h4>
-                <div class="principal-content">
-                    <div class="principal-img-wrapper">
-                        <!-- Placeholder for Principal -->
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-                            alt="Principal Photo">
-                    </div>
-                    <div class="principal-text">
-                        <h5>Proff Binu Suguthan</h5>
-                        <span>Principal</span>
-                        <p>
-                            "Education is not just about acquiring knowledge, but about igniting a passion for learning.
-                            Our institution strives to create an environment where every student can discover their
-                            potential
-                            and contribute meaningfully to society."
-                        </p>
+    <!-- Principal's Message Card Section -->
+    <section class="principal-card-section">
+        <div style="max-width:1100px; margin:0 auto;">
+            <div style="text-align:center; margin-bottom:40px;">
+                <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-gold);margin-bottom:8px;">Leadership</p>
+                <h2 style="font-size:28px;color:var(--primary-blue);font-weight:700;">Message from the Principal</h2>
+                <div style="width:50px;height:3px;background:var(--accent-gold);margin:12px auto 0;"></div>
+            </div>
+            <div class="principal-cards-grid">
+                <!-- Principal Card -->
+                <div class="principal-msg-card">
+                    <img class="principal-msg-card-photo"
+                         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                         alt="Prof. Binu Suguthan - Principal">
+                    <div class="principal-msg-card-body">
+                        <h3>Principal's Message</h3>
+                        <span class="p-title">Prof. Binu Suguthan &mdash; Principal</span>
+                        <p>"Education is not merely about acquiring knowledge — it is about igniting a passion for learning that lasts a lifetime..."</p>
+                        <a href="{% url 'principal_message' %}" class="btn-read-msg">
+                            <i class="fas fa-chevron-right"></i> Read Message
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Right Column: Events & Faculty -->
+    <!-- Main Content Grid (Notice Board) -->
+    <section class="info-section">
+        <div class="info-grid">
+
+            <!-- Notice Board -->
             <div class="card events-card">
                 <div class="events-box">
                     <h4>Notice Board</h4>
